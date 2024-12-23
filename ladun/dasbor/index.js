@@ -77,7 +77,7 @@ var divNavbar = new Vue({
 var divFooter = new Vue({
   el: '#divFooter',
   data: {
-    author: "NadhaMedia",
+    author: "Safina Nurhidayanti",
     tahun: tahun
   }
 });
@@ -104,12 +104,12 @@ var divMenu = new Vue({
     monitoringAtc : function()
     {
       renderMenu(monitoring);
-      divJudul.judulForm = "Monitoring Restoran";
+      divJudul.judulForm = "Monitoring Cafe";
     },
     menuAtc : function()
     {
       renderMenu(menu);
-      divJudul.judulForm = "Menu Restoran";
+      divJudul.judulForm = "Menu Cafe";
     },
     pelangganAtc : function()
     {
@@ -144,7 +144,7 @@ var divMenu = new Vue({
     pengaturanUmumAtc : function()
     {
       renderMenu(pengaturanUmum);
-      divJudul.judulForm = "Pengaturan Resto";
+      divJudul.judulForm = "Pengaturan Cafe";
     },
     bahanBakuAtc : function()
     {
@@ -164,7 +164,7 @@ var divMenu = new Vue({
     pengeluaranAtc : function()
     {
       renderMenu(pengeluaran);
-      divJudul.judulForm = "Pengeluaran Resto";
+      divJudul.judulForm = "Pengeluaran Cafe";
     },
     arusKasAtc : function()
     {

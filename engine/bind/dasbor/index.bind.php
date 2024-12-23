@@ -69,7 +69,8 @@
           </li>
           <li class="dropdown"><a href="#" data-toggle="dropdown"
               class="nav-link dropdown-toggle nav-link-lg nav-link-user">
-              <img alt="image" src="<?= STYLEBASE; ?>/dasbor/img/avatar-1.png" class="rounded-circle mr-1">
+              <img alt="image" src="<?= STYLEBASE; ?>/dasbor/img/avatar-1.png"
+                class="rounded-circle mr-1">
               <div class="d-sm-none d-lg-inline-block">Hi, <?= $data['username']; ?>
                 (<?= $data['userTipe']; ?>)</div>
             </a>
@@ -86,7 +87,7 @@
         <aside id="sidebar-wrapper">
           <div class="sidebar-brand">
             <a href="#!" style='height:30px;'>
-              <img src='<?= STYLEBASE; ?>/login/images/nadha_resto.png' style="width: 100px;">
+              <img src='<?= STYLEBASE; ?>/logo.jpg' style="width: 100px;">
             </a>
           </div>
           <div class="sidebar-brand sidebar-brand-sm">
@@ -106,7 +107,7 @@
       <div class="main-content">
         <section class="section">
           <div class="section-header">
-            <h1 id='capUtama'> Nadha Resto - {{judulForm}}</h1>
+            <h1 id='capUtama'> Tara Cafe - {{judulForm}}</h1>
 
           </div>
 

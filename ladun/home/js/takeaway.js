@@ -24,8 +24,8 @@ var divCart = new Vue({
     }
 });
 
+$('#statButtonPesan').hide();  
 divCart.kdPesanan = document.getElementById('txtKdPesananHidden').value;
-
 // FUNCTION 
 function setNGoTakeaway()
 {

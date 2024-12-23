@@ -2,11 +2,11 @@
     <li><a class="nav-link btnDashboard" href="#!" @click='berandaAct'><i
                 class="fas fa-home"></i><span>Dashboard</span></a></li>
     <li><a class="nav-link btnKartuLaundry" href="#!" @click='monitoringAtc'><i
-                class="far fa-newspaper"></i><span>Monitoring Restoran</span></a></li>
+                class="far fa-newspaper"></i><span>Monitoring Cafe</span></a></li>
     <li><a class="nav-link btnLaundryRoom" href="#!" @click='pesananBaruAtc'><i
                 class="fas fa-concierge-bell"></i><span>Pesanan Baru</span></a></li>
     <li><a class="nav-link btnKartuLaundry" href="#!" @click='pesananAtc'><i class="fas fa-clipboard"></i><span>Pesanan
-                Resto</span></a></li>
+                Cafe</span></a></li>
     <li><a class="nav-link btnKartuLaundry" href="#!" @click='deliveryOrderAtc'><i
                 class='fas fa-shipping-fast'></i><span>Take Away</span></a></li>
     <li class="dropdown">
@@ -26,7 +26,7 @@
             <span>Pengeluaran</span></a>
         <ul class="dropdown-menu">
             <li><a class="nav-link" href="#!" @click='pembelianBahanBakuAtc'>Pembelian Bahan Baku</a></li>
-            <li><a class="nav-link" href="#!" @click='pengeluaranAtc'>Pengeluaran Resto</a></li>
+            <li><a class="nav-link" href="#!" @click='pengeluaranAtc'>Pengeluaran Cafe</a></li>
         </ul>
     </li>
     <li class="dropdown">
@@ -35,12 +35,12 @@
         <ul class="dropdown-menu">
             <li><a class="nav-link" href="#!" @click='arusKasAtc'>Arus Kas</a></li>
             <li><a class="nav-link" href="#!" @click='laporanTransaksiAtc'>Laporan Transaksi</a></li>
-            <li><a class="nav-link" href="#!" @click='statistikAtc'>Statistik Resto</a></li>
+            <li><a class="nav-link" href="#!" @click='statistikAtc'>Statistik Cafe</a></li>
         </ul>
     </li>
     <li class="dropdown">
         <a href="#!" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-cogs"></i> <span>Setting
-                Resto</span></a>
+                Cafe</span></a>
         <ul class="dropdown-menu">
             <li><a class="nav-link" href="#!" @click='pengaturanUmumAtc'>Pengaturan Umum</a></li>
             <li><a class="nav-link" href="#!" @click='manajemenUserAtc'>Manajemen User</a></li>

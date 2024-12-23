@@ -98,9 +98,13 @@ class home extends Route
             if (!is_dir($uploadDir)) {
                 mkdir($uploadDir, 0777, true);
             }
-            $uploadFile = $uploadDir . basename($buktiBayar['name']);
+
+            // Generate a unique file name
+            $uniqueFileName = uniqid() . '_' . basename($buktiBayar['name']);
+            $uploadFile = $uploadDir . $uniqueFileName;
+
             if (move_uploaded_file($buktiBayar['tmp_name'], $uploadFile)) {
-                $buktiBayarPath = basename($buktiBayar['name']);
+                $buktiBayarPath = $uniqueFileName;
             } else {
                 error_log('move_uploaded_file gagal: ' . print_r(error_get_last(), true));
                 echo json_encode(['status' => 'error', 'message' => 'Upload bukti bayar gagal']);

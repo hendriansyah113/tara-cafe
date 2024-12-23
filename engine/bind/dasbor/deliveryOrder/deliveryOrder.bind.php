@@ -5,12 +5,15 @@
         <table id='tblDeliveryOrder' class='table hover table-bordered table-stripped'>
             <thead>
                 <tr>
-                    <th>Pesanan</th>
+                    <th>Nomor</th>
+                    <th>Kode Pesanan</th>
+                    <th>Nama Pelanggan</th>
                     <th>Status</th>
                     <th>Waktu</th>
-                    <th>Kurir</th>
                     <th>Total Harga</th>
-                    <th></th>
+                    <th>Bukti Bayar</th>
+                    <th>Aksi</th>
+                    <th>WA</th>
                 </tr>
             </thead>
         </table>
@@ -19,4 +22,4 @@
 
 </div>
 
-<script src="<?=STYLEBASE; ?>/dasbor/deliveryOrder.js"></script>
+<script src="<?= STYLEBASE; ?>/dasbor/deliveryOrder.js"></script>

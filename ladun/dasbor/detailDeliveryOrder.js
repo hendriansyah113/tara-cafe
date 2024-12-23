@@ -1,5 +1,5 @@
 // ROUTE 
-var routeToBatalkanPesanan = server + 'deliveryOrder/batalkanPesanan';
+var routeTobatalkanPesananTakeaway = server + 'deliveryOrder/batalkanPesananTakeawayTakeaway';
 var routeToProsesPesanan = server + 'deliveryOrder/prosesPesanan';
 var routeToKirimPesanan = server + 'deliveryOrder/kirimPesanan';
 var routeToSetSelesai = server + 'deliveryOrder/setSelesai';
@@ -32,7 +32,7 @@ var divDetailPesanan = new Vue({
         },
         batalkanPesananAtc : function(kdPesanan)
         {
-            batalkanPesanan(kdPesanan);
+            batalkanPesananTakeawayTakeaway(kdPesanan);
         },
         kembaliAtc : function()
         {
@@ -49,7 +49,7 @@ function setSelesai(kdPesanan)
 {
     Swal.fire({
         title: "Proses?",
-        text: "Set status pesanan ke selesai ... ?, pastikan kurir telah menerima pembayaran...",
+        text: "Set status pesanan ke selesai ... ?",
         icon: "info",
         showCancelButton: true,
         confirmButtonColor: "#3085d6",
@@ -136,7 +136,7 @@ function prosesPesanan(kdPesanan)
     });
 }
 
-function batalkanPesanan(kdPesanan)
+function batalkanPesananTakeaway(kdPesanan)
 {
     Swal.fire({
         title: "Hapus pesanan?",
@@ -149,7 +149,7 @@ function batalkanPesanan(kdPesanan)
         cancelButtonText: "Tidak",
     }).then((result) => {
         if (result.value) {
-           $.post(routeToBatalkanPesanan, {'kdPesanan':kdPesanan}, function(data){
+           $.post(routeTobatalkanPesananTakeaway, {'kdPesanan':kdPesanan}, function(data){
                 let obj = JSON.parse(data);
                 if(obj.status === 'sukses'){
                     pesanUmumApp('success', 'Sukses', 'Berhasil membatalkan pesanan ..');

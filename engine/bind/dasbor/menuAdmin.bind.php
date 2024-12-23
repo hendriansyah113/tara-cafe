@@ -8,7 +8,7 @@
     <li><a class="nav-link btnKartuLaundry" href="#!" @click='pesananAtc'><i class="fas fa-clipboard"></i><span>Pesanan
                 Resto</span></a></li>
     <li><a class="nav-link btnKartuLaundry" href="#!" @click='deliveryOrderAtc'><i
-                class='fas fa-shipping-fast'></i><span>Delivery Order</span></a></li>
+                class='fas fa-shipping-fast'></i><span>Take Away</span></a></li>
     <li class="dropdown">
         <a href="#!" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-newspaper"></i> <span>Data
                 Master</span></a>

@@ -139,7 +139,7 @@ var divMenu = new Vue({
     deliveryOrderAtc : function()
     {
       renderMenu(deliveryOrder);
-      divJudul.judulForm = "Delivery Order"; 
+      divJudul.judulForm = "Take Away"; 
     },
     pengaturanUmumAtc : function()
     {

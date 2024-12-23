@@ -43,18 +43,7 @@
                         </div>
                     </div>
                     <div class="col-md-7">
-                        <!-- Navigation -->
-                        <nav class="module module-navigation left mr-4">
-                            <ul id="nav-main" class="nav nav-main">
-                                <li><a href="<?= HOMEBASE; ?>">Home</a></li>
-                                <li><a href="#!">About Resto</a></li>
-                                <li><a href="#!">Menu Resto</a></li>
-                                <li><a href="#!">Gallery Resto</a></li>
-                            </ul>
-                        </nav>
-                        <div class="module left">
-                            <a href="<?= HOMEBASE; ?>home/selfservice"
-                                class="btn btn-outline-secondary"><span>Order</span></a>
+                        <div class="module right">
                             <a href="<?= HOMEBASE; ?>login" class="btn btn-outline-secondary"><span>Login</span></a>
                         </div>
                     </div>

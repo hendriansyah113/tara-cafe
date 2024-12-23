@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <!-- Title -->
-    <title>Checkout - <?= $data['namaResto']; ?></title>
+    <title>Checkout Takeaway - <?= $data['namaResto']; ?></title>
 
     <!-- Favicons -->
     <link rel="shortcut icon" href="assets/img/favicon.png">
@@ -51,16 +51,7 @@
                         </div>
                     </div>
                     <div class="col-md-7">
-                        <!-- Navigation -->
-                        <nav class="module module-navigation left mr-4">
-                            <ul id="nav-main" class="nav nav-main">
-                                <li><a href="<?= HOMEBASE; ?>">Home</a></li>
-                                <li><a href="#!">About Resto</a></li>
-                                <li><a href="#!">Menu Resto</a></li>
-                                <li><a href="#!">Gallery Resto</a></li>
-                            </ul>
-                        </nav>
-                        <div class="module left">
+                        <div class="module right">
                             <a href="<?= HOMEBASE; ?>login" class="btn btn-outline-secondary"><span>Login</span></a>
                         </div>
                     </div>
@@ -81,7 +72,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-8 offset-lg-4">
-                            <h1 class="mb-0">Checkout</h1>
+                            <h1 class="mb-0">Checkout Takeaway</h1>
                             <h4 class="text-muted mb-0">Silahkan isi data pemesanan anda</h4>
                         </div>
                     </div>
@@ -135,8 +126,7 @@
                                     <div class="form-group col-sm-6">
                                         <div class="select-container">
                                             <select class="form-control" id="txtTipePesanan">
-                                                <option value='none'>-- Pilih tipe pesanan --</option>
-                                                <option value="delivery">Pesan antar (Delivery)</option>
+                                                <option value='takeaway'>Takeaway</option>
                                             </select>
                                         </div>
                                     </div>
@@ -154,7 +144,7 @@
                                             <input type="text" class="form-control" id='txtHpPd'>
                                         </div>
                                         <div class="form-group col-sm-6">
-                                            <label>Alamat Pengiriman</label>
+                                            <label>Alamat</label>
                                             <input type="text" class="form-control" id='txtAlamatPd'>
                                         </div>
                                         <div class="form-group col-sm-6">
@@ -166,7 +156,7 @@
                                         <ul>
                                             <li><i>Apabila anda sudah menjadi pelanggan, masukkan nomor handphone yang
                                                     sudah terdaftar</i></li>
-                                            <li><i>Pastikan alamat pengiriman benar</i></li>
+                                            <li><i>Pastikan alamat benar</i></li>
                                             <li><i>Kode pemesanan akan dikirim melalui email &amp; nomor handphone,
                                                     untuk itu pastikan email yang anda masukkan valid</i></li>
                                         </ul>
@@ -180,10 +170,21 @@
                                             <div class="select-container">
                                                 <select class="form-control" id="txtTipePembayaran">
                                                     <option value='none'>-- Pilih tipe pembayaran --</option>
-                                                    <option value="cash">Cash On Delivery</option>
+                                                    at</option>
+                                                    <option value="qris">QRIS</option>
                                                 </select>
                                             </div>
                                         </div>
+                                    </div>
+                                    <div id="qrisPayment" style="display: none;">
+                                        <h5>Scan QRIS untuk pembayaran:</h5>
+                                        <img src=" <?= STYLEBASE; ?>/home/img/QRIS.png" alt="QRIS"
+                                            style="width: 200px; cursor: pointer;" data-toggle="modal"
+                                            data-target="#qrisModal">
+                                    </div>
+                                    <div id="uploadBuktiBayar" style="display: none;">
+                                        <h5>Upload Bukti Pembayaran:</h5>
+                                        <input type="file" class="form-control" id="buktiBayar" accept="image/*">
                                     </div>
                                 </div>
                             </div>
@@ -223,21 +224,22 @@
                         <div class="col-lg-5 col-md-6">
 
                             <h5 class="text-muted mb-3">Social Media</h5>
-                            <a href="#" class="icon icon-social icon-circle icon-sm icon-facebook"><i
-                                    class="fa fa-facebook"></i></a>
-                            <a href="#" class="icon icon-social icon-circle icon-sm icon-google"><i
+                            <a href="https://maps.app.goo.gl/iCkEQzQeBo3H5b2w5"
+                                class="icon icon-social icon-circle icon-sm icon-facebook"><i class="fa fa-map"></i></a>
+                            <a href="https://g.co/kgs/w8TvTzA"
+                                class="icon icon-social icon-circle icon-sm icon-google"><i
                                     class="fa fa-google"></i></a>
-                            <a href="#" class="icon icon-social icon-circle icon-sm icon-twitter"><i
-                                    class="fa fa-twitter"></i></a>
-                            <a href="#" class="icon icon-social icon-circle icon-sm icon-youtube"><i
-                                    class="fa fa-youtube"></i></a>
-                            <a href="#" class="icon icon-social icon-circle icon-sm icon-instagram"><i
+                            <a href="https://wa.me/082154579220"
+                                class="icon icon-social icon-circle icon-sm icon-twitter"><i
+                                    class="fa fa-whatsapp"></i></a>
+                            <a href="https://www.instagram.com/tara.coffee.id/"
+                                class="icon icon-social icon-circle icon-sm icon-instagram"><i
                                     class="fa fa-instagram"></i></a>
                         </div>
                     </div>
                     <!-- Footer 2nd Row -->
                     <div class="footer-second-row">
-                        <span class="text-sm text-muted">NadhaResto <br> Develop By Haxorsprogramming</span>
+                        <span class="text-sm text-muted">Tara Cafe <br> Develop By Safina Nurhidayanti</span>
                     </div>
                 </div>
 
@@ -261,18 +263,37 @@
             </div>
             <nav class="module module-navigation"></nav>
             <div class="module module-social">
-                <h6 class="text-sm mb-3">Follow Us!</h6>
-                <a href="#" class="icon icon-social icon-circle icon-sm icon-facebook"><i
-                        class="fa fa-facebook"></i></a>
-                <a href="#" class="icon icon-social icon-circle icon-sm icon-google"><i class="fa fa-google"></i></a>
-                <a href="#" class="icon icon-social icon-circle icon-sm icon-twitter"><i class="fa fa-twitter"></i></a>
-                <a href="#" class="icon icon-social icon-circle icon-sm icon-youtube"><i class="fa fa-youtube"></i></a>
-                <a href="#" class="icon icon-social icon-circle icon-sm icon-instagram"><i
-                        class="fa fa-instagram"></i></a>
+                <h6 class="text-sm mb-3">Ikuti Kami!</h6>
+                <a href="https://maps.app.goo.gl/iCkEQzQeBo3H5b2w5"
+                    class="icon icon-social icon-circle icon-sm icon-facebook"><i class="fa fa-map"></i></a>
+                <a href="https://g.co/kgs/w8TvTzA" class="icon icon-social icon-circle icon-sm icon-google"><i
+                        class="fa fa-google"></i></a>
+                <a href="https://wa.me/082154579220" class="icon icon-social icon-circle icon-sm icon-twitter"><i
+                        class="fa fa-whatsapp"></i></a>
+                <a href="https://www.instagram.com/tara.coffee.id/"
+                    class="icon icon-social icon-circle icon-sm icon-instagram"><i class="fa fa-instagram"></i></a>
             </div>
         </nav>
         <!-- Body Overlay -->
         <div id="body-overlay"></div>
+    </div>
+
+    <!-- Modal for QRIS Zoom -->
+    <div class="modal fade" id="qrisModal" tabindex="-1" role="dialog" aria-labelledby="qrisModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="qrisModalLabel">QRIS Payment</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body text-center">
+                    <img src="<?= STYLEBASE; ?>/home/img/QRIS.png" alt="QRIS" style="width: 100%;">
+                </div>
+            </div>
+        </div>
     </div>
     <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.17.0/firebase-firestore.js"></script>
@@ -283,7 +304,22 @@
     <script>
         const server = "<?= HOMEBASE; ?>";
     </script>
-    <script src="<?= HOMEBASE; ?>ladun/home/js/checkout.js"></script>
+    <script src="<?= HOMEBASE; ?>ladun/home/js/takeaway.js"></script>
+    <script>
+        document.getElementById('txtTipePembayaran').addEventListener('change', function() {
+            var tipePembayaran = this.value;
+            if (tipePembayaran === 'qris') {
+                document.getElementById('qrisPayment').style.display = 'block';
+                document.getElementById('uploadBuktiBayar').style.display = 'block';
+            } else if (tipePembayaran === 'cash') {
+                document.getElementById('qrisPayment').style.display = 'none';
+                document.getElementById('uploadBuktiBayar').style.display = 'block';
+            } else {
+                document.getElementById('qrisPayment').style.display = 'none';
+                document.getElementById('uploadBuktiBayar').style.display = 'none';
+            }
+        });
+    </script>
 </body>
 
 </html>

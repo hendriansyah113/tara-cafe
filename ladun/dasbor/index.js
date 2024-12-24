@@ -179,7 +179,7 @@ var divMenu = new Vue({
     statistikAtc : function()
     {
       renderMenu(statistik);
-      divJudul.judulForm = "Statistik Resto";
+      divJudul.judulForm = "Statistik Cafe";
     },
     bantuanAtc : function()
     {

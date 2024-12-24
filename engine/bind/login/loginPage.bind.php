@@ -5,10 +5,10 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" , shrink-to-fit="no">
-    <title><?=SITENAME; ?></title>
+    <title><?= SITENAME; ?></title>
     <!-- base:css -->
-    <link rel="stylesheet" href="<?=STYLEBASE; ?>/login/vendors/mdi/css/materialdesignicons.min.css">
-    <link rel="stylesheet" href="<?=STYLEBASE; ?>/login/vendors/base/vendor.bundle.base.css">
+    <link rel="stylesheet" href="<?= STYLEBASE; ?>/login/vendors/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="<?= STYLEBASE; ?>/login/vendors/base/vendor.bundle.base.css">
     <link href="https://fonts.googleapis.com/css2?family=Karla:wght@700&family=Nunito:wght@600&display=swap"
         rel="stylesheet">
     <!-- core css -->
@@ -31,7 +31,7 @@
                         <div class="col-lg-4 mx-auto">
                             <div class="auth-form-light text-left py-5 px-4 px-sm-5" id='login-app'>
                                 <div class="brand-logo" style='text-align:center;'>
-                                    <img src="<?=STYLEBASE; ?>/<?=$data['pic']; ?>" alt="logo" style='width:200px; '>
+                                    <img src="<?= STYLEBASE; ?>/<?= $data['pic']; ?>" alt="logo" style='width:200px; '>
                                     <h4 style="font-weight:bold;">Aplikasi Manajemen Restoran</h4>
                                 </div>
                                 <div style='text-align:center;'>
@@ -57,8 +57,8 @@
                                             </div>
                                             <div class="mt-2">
                                                 <div style='padding-top:12px;'>
-                                                    <h5 class="font-weight-light">2020 &copy; <a
-                                                            href='http://haxors.or.id' target='new'>Nadhamedia</a>
+                                                    <h5 class="font-weight-light">2020 &copy; <a href='#'
+                                                            target='new'>Safina Nurhidayanti</a>
                                                     </h5>
                                                 </div>
                                             </div>
@@ -74,11 +74,11 @@
     </div>
     <!-- Custom js  -->
     <script>
-    const server = "<?=HOMEBASE; ?>";
+        const server = "<?= HOMEBASE; ?>";
     </script>
-    <script src="<?=STYLEBASE; ?>/login/js/login.js"></script>
-    <script src="<?=STYLEBASE; ?>/login/js/template.js"></script>
-    <script src="<?=STYLEBASE; ?>/login/js/page/auth-workers.js"></script>
+    <script src="<?= STYLEBASE; ?>/login/js/login.js"></script>
+    <script src="<?= STYLEBASE; ?>/login/js/template.js"></script>
+    <script src="<?= STYLEBASE; ?>/login/js/page/auth-workers.js"></script>
 </body>
 
 </html>

@@ -42,7 +42,7 @@
                     <div class="card-wrap">
                         <div class="card-header">
                             <h3>{{profit}}</h3>
-                            <h4>Rasio Profit</h4>
+                            <h4>Total Pesanan Harian</h4>
                         </div>
                         <div class="card-body">
 
@@ -81,7 +81,8 @@
                 <div class="card-body">
                     <ul class="list-unstyled list-unstyled-border">
                         <li class="media" v-for='mv in menuFavorit'>
-                            <img class="mr-3" width="170" style="border-radius:6px;" :src="'<?=STYLEBASE; ?>/dasbor/img/menu/'+mv.pic" alt="avatar">
+                            <img class="mr-3" width="170" style="border-radius:6px;"
+                                :src="'<?= STYLEBASE; ?>/dasbor/img/menu/'+mv.pic" alt="avatar">
                             <div class="media-body">
                                 <div class="media-title">{{mv.judul}}</div>
                                 <span class="text-small text-muted">
@@ -107,11 +108,13 @@
                     <ul class="list-unstyled list-unstyled-border">
                         <li class="media" v-for='lt in lastTs'>
                             <a href="#">
-                                <img class="mr-3 rounded" width="50" src="<?=STYLEBASE; ?>/dasbor/img/avatar-1.png" alt="product">
+                                <img class="mr-3 rounded" width="50" src="<?= STYLEBASE; ?>/dasbor/img/avatar-1.png"
+                                    alt="product">
                             </a>
                             <div class="media-body">
                                 <div class="media-right">Rp. {{ Number(lt.total).toLocaleString() }}</div>
-                                <div class="media-title"><a href="#!" @click='detailPesananAtc(lt.kdPesanan)'>{{lt.namaPelanggan}}</a></div>
+                                <div class="media-title"><a href="#!"
+                                        @click='detailPesananAtc(lt.kdPesanan)'>{{lt.namaPelanggan}}</a></div>
                                 <div class="text-muted text-small">Dine in <a href="#"></a>
                                     <div class="bullet"></div> {{lt.waktu}}
                                 </div>
@@ -124,4 +127,4 @@
     </div>
 </div>
 
-<script src="<?=STYLEBASE; ?>/dasbor/beranda.js"></script>
+<script src="<?= STYLEBASE; ?>/dasbor/beranda.js"></script>

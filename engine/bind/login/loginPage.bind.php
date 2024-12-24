@@ -51,11 +51,14 @@
                                                     class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn"
                                                     href="#!">Masuk</a>
                                             </div>
+                                            <div class="mt-3">
+                                                <a class="btn btn-block btn-danger btn-lg font-weight-medium auth-form-btn"
+                                                    href="<?= HOMEBASE; ?>">Kembali</a>
+                                            </div>
                                             <div class="mt-2">
                                                 <div style='padding-top:12px;'>
-                                                    <h5 class="font-weight-light">2024 &copy; <a
-                                                            href='http://haxors.or.id' target='new'>Safina
-                                                            Nurhidayanti</a>
+                                                    <h5 class="font-weight-light">2020 &copy; <a
+                                                            href='http://haxors.or.id' target='new'>Nadhamedia</a>
                                                     </h5>
                                                 </div>
                                             </div>

@@ -18,11 +18,57 @@ class deliveryOrderData
 
     public function getDataPesanan($requestData)
     {
-        $this->st->query("SELECT tbl_delivery_order.*, tbl_pelanggan.nama, tbl_pelanggan.no_hp FROM tbl_delivery_order 
-                              JOIN tbl_pelanggan ON tbl_delivery_order.pelanggan = tbl_pelanggan.id_pelanggan 
-                              ORDER BY tbl_delivery_order.masuk DESC 
-                              LIMIT " . $requestData['start'] . " ," . $requestData['length'] . ";");
+        // Map kolom DataTables ke nama kolom database
+        $columns = [
+            0 => 'kd_pesanan',
+            1 => 'nama',
+            2 => 'status',
+            3 => 'masuk',
+            4 => 'total_harga'
+        ];
+
+        // Sorting
+        $orderColumnIndex = $requestData['order'][0]['column'];
+        $orderDir = $requestData['order'][0]['dir'];
+        $orderColumn = $columns[$orderColumnIndex];
+
+        // Searching
+        $searchValue = $requestData['search']['value'];
+        $searchQuery = "";
+        if (!empty($searchValue)) {
+            $searchQuery = "AND (tbl_delivery_order.kd_pesanan LIKE '%$searchValue%' 
+                            OR tbl_pelanggan.nama LIKE '%$searchValue%' 
+                            OR tbl_delivery_order.status LIKE '%$searchValue%')";
+        }
+
+        // Query utama dengan pencarian dan sorting
+        $query = "SELECT tbl_delivery_order.*, tbl_pelanggan.nama, tbl_pelanggan.no_hp 
+                  FROM tbl_delivery_order 
+                  JOIN tbl_pelanggan ON tbl_delivery_order.pelanggan = tbl_pelanggan.id_pelanggan 
+                  WHERE 1=1 $searchQuery 
+                  ORDER BY $orderColumn $orderDir 
+                  LIMIT " . $requestData['start'] . ", " . $requestData['length'];
+
+        $this->st->query($query);
         return $this->st->queryAll();
+    }
+
+    public function getFilteredPesanan($searchValue)
+    {
+        $searchQuery = "";
+        if (!empty($searchValue)) {
+            $searchQuery = "AND (tbl_delivery_order.kd_pesanan LIKE '%$searchValue%' 
+                        OR tbl_pelanggan.nama LIKE '%$searchValue%' 
+                        OR tbl_delivery_order.status LIKE '%$searchValue%')";
+        }
+
+        $query = "SELECT COUNT(*) AS total 
+              FROM tbl_delivery_order 
+              JOIN tbl_pelanggan ON tbl_delivery_order.pelanggan = tbl_pelanggan.id_pelanggan 
+              WHERE 1=1 $searchQuery";
+
+        $this->st->query($query);
+        return $this->st->querySingle()['total'];
     }
 
     public function getTotalPesanan($kdPesanan)

@@ -66,9 +66,38 @@ class utilityData
     //fungsi ambil transaksi terakhir
     public function getTransaksiTerakhir()
     {
+        // Mendapatkan tanggal hari ini
+        $tanggalHariIni = date('Y-m-d');  // Format: YYYY-MM-DD
+
+        $this->st->query("SELECT SUM(total_final) AS total_transaksi_harian FROM tbl_pembayaran WHERE DATE(waktu) = '$tanggalHariIni';");
+        $tt = $this->st->querySingle();
+        $totalTransaksiHarian = $tt['total_transaksi_harian'];
+
+        // Format angka dengan titik sebagai pemisah ribuan
+        return number_format($totalTransaksiHarian, 0, ',', '.');
+    }
+
+    //fungsi ambil transaksi terakhir
+    public function getTransaksiTerakhirList()
+    {
         $this->st->query("SELECT * FROM tbl_pembayaran ORDER BY waktu DESC LIMIT 0, 7;");
         return $this->st->queryAll();
     }
+
+    public function getTotalPesananHarian()
+    {
+        // Mendapatkan tanggal hari ini
+        $tanggalHariIni = date('Y-m-d');  // Format: YYYY-MM-DD
+
+        // Query untuk menghitung jumlah pesanan pada tanggal hari ini
+        $this->st->query("SELECT COUNT(*) AS total_pesanan_harian FROM tbl_pembayaran WHERE DATE(waktu) = '$tanggalHariIni';");
+        $tp = $this->st->querySingle();
+        $totalPesananHarian = $tp['total_pesanan_harian'];
+
+        // Mengembalikan jumlah pesanan
+        return $totalPesananHarian;
+    }
+
     //fungsi ambil kd_pelanggan dari tbl_pesanan dengan parameter kd_pesanan
     public function getPelangganFromPesanan($kdPesanan)
     {

@@ -15,10 +15,19 @@ class deliveryOrder extends Route
     {
         $this->state($this->su)->csrfCek();
         $requestData = $_REQUEST;
+
+        // Total semua pesanan
         $totalPesanan = $this->state($this->sn)->getJlhPesanan();
+
+        // Total data setelah filtering
+        $searchValue = $requestData['search']['value'];
+        $totalFiltered = $this->state($this->sn)->getFilteredPesanan($searchValue);
+
+        // Data pesanan
         $dataPesanan = $this->state($this->sn)->getDataPesanan($requestData);
+
         $data = array();
-        $no = 1;
+        $no = $requestData['start'] + 1;
 
         foreach ($dataPesanan as $ds) {
             $kdPesanan = $ds['kd_pesanan'];
@@ -73,7 +82,7 @@ class deliveryOrder extends Route
             "data"            => $data
         );
 
-        echo json_encode($json_data);
+        $this->toJson($json_data);
     }
 
     public function detailPesanan($kdPesanan)

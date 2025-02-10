@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 24 Des 2024 pada 09.41
+-- Waktu pembuatan: 10 Feb 2025 pada 05.23
 -- Versi server: 10.4.32-MariaDB
 -- Versi PHP: 7.4.30
 
@@ -55,7 +55,8 @@ INSERT INTO `tbl_arus_kas` (`id`, `kd_transaksi`, `tipe`, `arus`, `total`, `wakt
 (11, '2452ELIXO9PRVER', 'Pembayaran Kasir', 'masuk', 26250, '2024-12-23 15:57:01', ''),
 (12, '1GMI4R0EUJATT2S', 'Pembayaran Kasir', 'masuk', 26250, '2024-12-24 04:44:50', ''),
 (13, 'zGqripBchHfslbr', 'Pembelian bahan baku resto', 'keluar', 10000, '2024-12-24 04:57:51', 'admin'),
-(14, 'ata1ukrd2hr2bqJ8Vwf9', 'Pengeluaran resto', 'keluar', 1500000, '2024-12-24 04:58:44', 'admin');
+(14, 'ata1ukrd2hr2bqJ8Vwf9', 'Pengeluaran resto', 'keluar', 1500000, '2024-12-24 04:58:44', 'admin'),
+(15, 'VYT2P5HBFRBW6XH', 'Pembayaran Kasir', 'masuk', 7700, '2025-02-10 04:21:26', '');
 
 -- --------------------------------------------------------
 
@@ -80,21 +81,6 @@ CREATE TABLE `tbl_bahan_baku` (
 
 INSERT INTO `tbl_bahan_baku` (`id`, `kd_bahan`, `nama`, `deks`, `kategori`, `satuan`, `stok`, `aktif`) VALUES
 (1, '4751', 'Mie', 'Untuk Bahan Mie', 'Mie Instan', 'pcs', 4, '1');
-
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `tbl_csrf_token`
---
-
-CREATE TABLE `tbl_csrf_token` (
-  `id` int(10) NOT NULL,
-  `token` varchar(30) DEFAULT NULL,
-  `login_from` varchar(20) DEFAULT NULL,
-  `created` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `valid_until` timestamp NOT NULL DEFAULT current_timestamp(),
-  `status` varchar(10) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- --------------------------------------------------------
 
@@ -127,7 +113,7 @@ INSERT INTO `tbl_delivery_order` (`id`, `kd_pesanan`, `pelanggan`, `status`, `al
 (8, 'WQXVVVIY0ANNGIZ', '31074875', 'order_masuk', 'wdwdd', '2024-12-23 03:31:49', 'Picture2.png'),
 (9, 'DLSY2KWKPEVMIGP', '31074875', 'order_masuk', 'wdwdd', '2024-12-23 03:34:08', 'WhatsApp Image 2024-11-17 at 08.02.44.jpeg'),
 (10, 'QBK6NHLYQDAI38O', '37798165', 'order_masuk', 'wdwdd', '2024-12-23 03:40:11', 'Halaman Login.png'),
-(11, 'VYT2P5HBFRBW6XH', '86721769', 'order_masuk', 'wdwdd', '2024-12-23 03:48:34', 'WhatsApp Image 2024-12-16 at 15.55.11.jpeg'),
+(11, 'VYT2P5HBFRBW6XH', '86721769', 'selesai', 'wdwdd', '2024-12-23 03:48:34', 'WhatsApp Image 2024-12-16 at 15.55.11.jpeg'),
 (12, 'DJJLUTX1RMM4VON', '12953544', 'diproses', 'wdwdd', '2024-12-23 03:50:03', 'Lambang_Kota_Palangka_Raya.gif'),
 (13, 'JN8UI1AW9FOZCSO', '12953544', 'order_masuk', 'wdwdd', '2024-12-23 03:52:32', 'WhatsApp Image 2024-11-17 at 08.02.44.jpeg'),
 (14, 'AZFG2DK9QRF50DZ', '12953544', 'selesai', 'wdwdd', '2024-12-23 03:55:41', 'Struktur Organisasi BTIKP.jpg'),
@@ -186,8 +172,8 @@ CREATE TABLE `tbl_meja` (
 --
 
 INSERT INTO `tbl_meja` (`id`, `kd_meja`, `nama`, `deks`, `status`, `jlh_tamu`, `last_visit`) VALUES
-(1, '1151', 'Meja 1', 'Meja dekat dinding', 'leave', 0, '2024-12-24 08:38:25'),
-(2, '2819', 'Meja 2', 'Meja dekat Pintu Masuk', 'leave', 0, '2024-12-24 04:54:52');
+(1, '1151', 'Meja 1', 'Meja dekat dinding', 'leave', 0, '2025-01-20 23:24:27'),
+(2, '2819', 'Meja 2', 'Meja dekat Pintu Masuk', 'active', 0, '2025-01-20 23:26:34');
 
 -- --------------------------------------------------------
 
@@ -245,22 +231,6 @@ INSERT INTO `tbl_mitra` (`id`, `kd_mitra`, `nama`, `deks`, `alamat`, `pemilik`, 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tbl_operator`
---
-
-CREATE TABLE `tbl_operator` (
-  `id` int(5) NOT NULL,
-  `username` varchar(55) NOT NULL,
-  `nama` varchar(55) NOT NULL,
-  `alamat` text NOT NULL,
-  `hp` varchar(20) NOT NULL,
-  `posisi` varchar(50) NOT NULL,
-  `total_waktu_kerja` int(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
-
--- --------------------------------------------------------
-
---
 -- Struktur dari tabel `tbl_pelanggan`
 --
 
@@ -280,17 +250,17 @@ CREATE TABLE `tbl_pelanggan` (
 
 INSERT INTO `tbl_pelanggan` (`id`, `id_pelanggan`, `nama`, `alamat`, `no_hp`, `email`, `last_visit`) VALUES
 (1, 'cash', 'Cash (Pelanggan default)', '-', '-', '-', '2020-06-22 09:07:13'),
-(2, '28581316', 'Hendri Ansyah', 'jl. seth adji no.49, Palangka Raya', '0895341640045', 'hendriansyah113@gmail.com', '2024-12-22 07:45:11'),
+(2, '28581316', 'pambudi', 'jl. seth adji no.49, Palangka Raya', '0895341640045', 'hendriansyah113@gmail.com', '2025-01-21 01:11:01'),
 (3, '03541856', 'Fikri', 'zzzzzzzzz', '085252982733', 'hendriansyah113@gmail.com', '2024-12-23 13:38:38'),
-(4, '25661603', 'Hendri Ansyah', 'zzzzzzzzz', '085252982722233', 'hendriansyah113@gmail.com', '2024-12-23 02:46:28'),
-(5, '68364958', 'Hendri Ansyah', 'wdwdd', '232323', 'hendriansyah113@gmail.com', '2024-12-23 03:25:51'),
-(6, '84591587', 'Hendri Ansyah', 'wdwdd', '23232322', 'hendriansyah113@gmail.com', '2024-12-23 03:27:41'),
-(7, '31074875', 'Hendri Ansyah', 'wdwdd', '2323232211', 'hendriansyah113@gmail.com', '2024-12-23 03:29:58'),
-(8, '37798165', 'Hendri Ansyah', 'wdwdd', '23232322112', 'hendriansyah113@gmail.com', '2024-12-23 03:40:11'),
-(9, '86721769', 'Hendri Ansyah', 'wdwdd', '232321322112', 'hendriansyah113@gmail.com', '2024-12-23 03:48:34'),
-(10, '12953544', 'Hendri Ansyah', 'wdwdd', '2323213221121', 'hendriansyah113@gmail.com', '2024-12-23 03:50:03'),
-(11, '18220107', 'Hendri Ansyah', 'wdwdd', '23232132121121', 'hendriansyah113@gmail.com', '2024-12-23 04:02:31'),
-(12, '38794370', 'Hendri Ansyah', 'wdwdd', '232321232121121', 'hendriansyah113@gmail.com', '2024-12-23 04:28:27'),
+(4, '25661603', 'Johan', 'zzzzzzzzz', '085252982722233', 'hendriansyah113@gmail.com', '2025-01-21 01:11:20'),
+(5, '68364958', 'andre', 'wdwdd', '232323', 'hendriansyah113@gmail.com', '2025-01-21 01:12:35'),
+(6, '84591587', 'Lisa', 'wdwdd', '23232322', 'hendriansyah113@gmail.com', '2025-01-21 01:12:43'),
+(7, '31074875', 'Lalisa', 'wdwdd', '2323232211', 'hendriansyah113@gmail.com', '2025-01-21 01:12:54'),
+(8, '37798165', 'Muti', 'wdwdd', '23232322112', 'hendriansyah113@gmail.com', '2025-01-21 01:13:04'),
+(9, '86721769', 'johan', 'wdwdd', '232321322112', 'hendriansyah113@gmail.com', '2025-01-21 01:11:47'),
+(10, '12953544', 'Muklis', 'wdwdd', '2323213221121', 'hendriansyah113@gmail.com', '2025-01-21 01:13:15'),
+(11, '18220107', 'ramos', 'wdwdd', '23232132121121', 'hendriansyah113@gmail.com', '2025-01-21 01:13:27'),
+(12, '38794370', 'adit', 'wdwdd', '232321232121121', 'hendriansyah113@gmail.com', '2025-01-21 01:13:40'),
 (13, '66240845', 'fina', 'hjbjbjhbjhb', '00909099', 'hjbbbhhbjhb', '2024-12-23 04:46:36'),
 (14, '76675924', 'fina2', 'jl. jati', '085252982733', 'jati@gmail.com', '2024-12-23 05:27:31'),
 (15, '76684882', 'budi', 'sacasc', '08973283', 'cacac', '2024-12-23 13:51:19'),
@@ -333,7 +303,8 @@ INSERT INTO `tbl_pembayaran` (`id`, `kd_invoice`, `kd_pesanan`, `waktu`, `total`
 (9, '12-23-2024-GF4D', 'GF4DFEGRELCRQ5J', '2024-12-23 08:57:34', 25000, '', 0, 1250, 26250, 26250, 0, ''),
 (10, '12-23-2024-AZFG', 'AZFG2DK9QRF50DZ', '2024-12-23 13:22:42', 7000, '', 0, 350, 7350, 7350, 0, ''),
 (11, '12-23-2024-2452', '2452ELIXO9PRVER', '2024-12-23 15:57:01', 25000, '', 0, 1250, 26250, 26250, 0, ''),
-(12, '12-24-2024-1GMI', '1GMI4R0EUJATT2S', '2024-12-24 04:44:50', 25000, '', 0, 1250, 26250, 26250, 0, '');
+(12, '12-24-2024-1GMI', '1GMI4R0EUJATT2S', '2024-12-24 04:44:50', 25000, '', 0, 1250, 26250, 26250, 0, ''),
+(13, '02-10-2025-VYT2', 'VYT2P5HBFRBW6XH', '2025-02-10 04:21:26', 7000, '', 0, 700, 7700, 7700, 0, '');
 
 -- --------------------------------------------------------
 
@@ -560,7 +531,11 @@ INSERT INTO `tbl_temp_self_service` (`id`, `kd_temp`, `kd_item`, `qt`, `harga_at
 (41, 'NYC20JBVRJ8AXI2', '45446025', 1, 7000, 7000),
 (42, 'NTD5ZG8CQWPZIL0', '08128922', 1, 25000, 25000),
 (43, '2452ELIXO9PRVER', '08128922', 1, 25000, 25000),
-(44, '1GMI4R0EUJATT2S', '08128922', 1, 25000, 25000);
+(44, '1GMI4R0EUJATT2S', '08128922', 1, 25000, 25000),
+(45, 'WTEQYOGZ1CR9OHX', '08128922', 1, 25000, 25000),
+(46, 'ZWM5VOI6ISR7MHF', '08128922', 1, 25000, 25000),
+(47, 'CVCNTT1ZDMKOXQH', '08128922', 1, 25000, 25000),
+(48, 'RHR398KOUU5AG2D', '08128922', 1, 25000, 25000);
 
 -- --------------------------------------------------------
 
@@ -606,8 +581,8 @@ CREATE TABLE `tbl_user` (
 --
 
 INSERT INTO `tbl_user` (`id`, `username`, `nama`, `password`, `tipe`, `last_login`) VALUES
-(1, 'admin', 'Safina Nurhidayanti', '$2y$10$BcD2s9XpSC9lqMXdD17Qw.cDyBms9JUZ36XcEDVKUl3lmOivSGYFe', 'admin', '2024-12-24 08:39:09'),
-(2, 'kasir', 'kasir', '$2y$10$YcnV/mudgmKt5UhMcLWrBesOOg4TqpOrTnEqPouBQeas8rDx9MEF2', 'kasir', '2024-12-24 08:37:59');
+(1, 'admin', 'Safina Nurhidayanti', '$2y$10$BcD2s9XpSC9lqMXdD17Qw.cDyBms9JUZ36XcEDVKUl3lmOivSGYFe', 'admin', '2025-02-10 03:24:25'),
+(2, 'kasir', 'kasir', '$2y$10$YcnV/mudgmKt5UhMcLWrBesOOg4TqpOrTnEqPouBQeas8rDx9MEF2', 'kasir', '2025-02-10 04:19:36');
 
 --
 -- Indexes for dumped tables
@@ -653,12 +628,6 @@ ALTER TABLE `tbl_menu`
 -- Indeks untuk tabel `tbl_mitra`
 --
 ALTER TABLE `tbl_mitra`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indeks untuk tabel `tbl_operator`
---
-ALTER TABLE `tbl_operator`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -741,7 +710,7 @@ ALTER TABLE `tbl_user`
 -- AUTO_INCREMENT untuk tabel `tbl_arus_kas`
 --
 ALTER TABLE `tbl_arus_kas`
-  MODIFY `id` int(13) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(13) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT untuk tabel `tbl_bahan_baku`
@@ -780,12 +749,6 @@ ALTER TABLE `tbl_mitra`
   MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT untuk tabel `tbl_operator`
---
-ALTER TABLE `tbl_operator`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT untuk tabel `tbl_pelanggan`
 --
 ALTER TABLE `tbl_pelanggan`
@@ -795,7 +758,7 @@ ALTER TABLE `tbl_pelanggan`
 -- AUTO_INCREMENT untuk tabel `tbl_pembayaran`
 --
 ALTER TABLE `tbl_pembayaran`
-  MODIFY `id` int(7) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(7) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT untuk tabel `tbl_pembelian_bahan_baku`
@@ -843,7 +806,7 @@ ALTER TABLE `tbl_temp_pesanan`
 -- AUTO_INCREMENT untuk tabel `tbl_temp_self_service`
 --
 ALTER TABLE `tbl_temp_self_service`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 
 --
 -- AUTO_INCREMENT untuk tabel `tbl_transaksi`
@@ -855,7 +818,7 @@ ALTER TABLE `tbl_transaksi`
 -- AUTO_INCREMENT untuk tabel `tbl_user`
 --
 ALTER TABLE `tbl_user`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

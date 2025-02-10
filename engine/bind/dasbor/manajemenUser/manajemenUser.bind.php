@@ -18,19 +18,19 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php foreach($data['user'] as $du) : ?>
-                    <tr>
-                        <td><a href="#!"><b><?=$du['username']; ?></b></a><br /><?=$du['nama']; ?></td>
-                        <td><?=$du['tipe']; ?></td>
-                        <td><?=$du['last_login']; ?></td>
-                        <td style="text-align: center;">
-                            <a href='#!' class="btn btn-sm btn-primary btn-icon icon-left"
-                                @click="editUserAtc('<?=$du['username']; ?>')"><i class='far fa-edit'></i> Edit</a>
-                            <a href='#!' class="btn btn-sm btn-warning btn-icon icon-left"
-                                @click="hapusUserAtc('<?=$du['username']; ?>')"><i class='fas fa-trash-alt'></i>
-                                Hapus</a>
-                        </td>
-                    </tr>
+                    <?php foreach ($data['user'] as $du) : ?>
+                        <tr>
+                            <td><a href="#!"><b><?= $du['username']; ?></b></a><br /><?= $du['nama']; ?></td>
+                            <td><?= ($du['tipe'] === 'admin') ? 'Pemilik Cafe' : 'Admin'; ?></td>
+                            <td><?= $du['last_login']; ?></td>
+                            <td style="text-align: center;">
+                                <a href='#!' class="btn btn-sm btn-primary btn-icon icon-left"
+                                    @click="editUserAtc('<?= $du['username']; ?>')"><i class='far fa-edit'></i> Edit</a>
+                                <a href='#!' class="btn btn-sm btn-warning btn-icon icon-left"
+                                    @click="hapusUserAtc('<?= $du['username']; ?>')"><i class='fas fa-trash-alt'></i>
+                                    Hapus</a>
+                            </td>
+                        </tr>
                     <?php endforeach; ?>
                 </tbody>
             </table>
@@ -62,8 +62,8 @@
                     <label>Tipe User</label>
                     <select class="form-control" id='txtTipeUser'>
                         <option value="none">-- Pilih tipe user ---</option>
-                        <option value="admin">Administrator</option>
-                        <option value="kasir">Kasir</option>
+                        <option value="admin">Pemilik Cafe</option>
+                        <option value="kasir">Admin</option>
                     </select>
                 </div>
                 <div>
@@ -102,11 +102,8 @@
                     <label>Tipe User</label>
                     <select class="form-control" id='txtTipeUserUp' v-model='tipeUp'>
                         <option value="none">-- Pilih tipe user ---</option>
-                        <option value="admin">Administrator</option>
-                        <option value="kasir">Kasir</option>
-                        <option value="waiters">Waiters</option>
-                        <option value="kurir">Kurir Delivery Order</option>
-                        <option value="kitchen">Dapur</option>
+                        <option value="admin">Pemilik Cafe</option>
+                        <option value="kasir">Admin</option>
                     </select>
                 </div>
                 <div>
@@ -117,4 +114,4 @@
         </div>
     </div>
 </div>
-<script src="<?=STYLEBASE; ?>/dasbor/manajemenUser.js"></script>
+<script src="<?= STYLEBASE; ?>/dasbor/manajemenUser.js"></script>

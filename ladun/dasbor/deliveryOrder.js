@@ -33,7 +33,7 @@ $('#tblDeliveryOrder').dataTable({
         { data: 1 }, // Kode Pesanan
         { data: 2 }, // Nama Pelanggan
         { data: 3 }, // Status
-        { data: 4, render: function (data) { return new Date(data * 1000).toLocaleString(); } }, // Tanggal
+        { data: 4}, // Tanggal
         { data: 5, render: $.fn.dataTable.render.number(',', '.', 0, 'Rp. ') }, // Harga
         { data: 6 }, // Bukti Bayar
         { data: 7 }, // Detail

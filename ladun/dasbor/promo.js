@@ -13,7 +13,6 @@ var divPromo = new Vue({
         tanggalExpired : '',
         manajemenPromo : [
             {teks : 'Promo digunakan untuk menarik pelanggan'},
-            {teks : 'Gunakan regex {promo_code}, dalam broadcast pesan untuk menampilkan detail promo'},
             {teks : 'Promo akan nonaktif apabila telah memasuki tanggal akhir/kuota habis'}
         ]
     },

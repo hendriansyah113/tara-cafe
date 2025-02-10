@@ -17,18 +17,19 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php foreach($data['meja'] as $dm) : ?>
-                    <tr>
-                        <td><?=$dm['nama']; ?></td>
-                        <td><?=$dm['deks']; ?></td>
-                        <td><?=$dm['status']; ?></td>
-                        <td><?=$dm['last_visit']; ?></td>
-                        <td>
-                            <a href='#!' class='btn btn-warning btn-sm btn-icon icon-left' @click='hapusAtc("<?=$dm['kd_meja']; ?>", "<?=$dm['nama']; ?>")'>
-                                <i class='fas fa-trash-alt'></i> Hapus
-                            </a>
-                        </td>
-                    </tr>
+                    <?php foreach ($data['meja'] as $dm) : ?>
+                        <tr>
+                            <td><?= $dm['nama']; ?></td>
+                            <td><?= $dm['deks']; ?></td>
+                            <td><?= $dm['status']; ?></td>
+                            <td><?= $dm['last_visit']; ?></td>
+                            <td>
+                                <a href='#!' class='btn btn-warning btn-sm btn-icon icon-left'
+                                    @click='hapusAtc("<?= $dm['kd_meja']; ?>", "<?= $dm['nama']; ?>")'>
+                                    <i class='fas fa-trash-alt'></i> Hapus
+                                </a>
+                            </td>
+                        </tr>
                     <?php endforeach; ?>
                 </tbody>
             </table>
@@ -60,18 +61,8 @@
                     </a>
                 </div>
             </div>
-            <div class='col-lg-6 col-md-6 col-sm-6 col-12 mt-3'>
-                <div class='card card-primary'>
-                    <div class='card-header'>
-                        <h4 class='card-title'>Tentang manajemen meja</h4>
-                    </div>
-                    <div class='card-body'>
-                        <ul></ul>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 </div>
 
-<script src='<?=STYLEBASE; ?>/dasbor/meja.js'></script>
+<script src='<?= STYLEBASE; ?>/dasbor/meja.js'></script>

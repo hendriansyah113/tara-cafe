@@ -9,7 +9,7 @@
   <!-- General CSS Files -->
   <link href="https://fonts.googleapis.com/css?family=Nunito+Sans&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="<?= STYLEBASE; ?>/dasbor/stisla/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://demo.getstisla.com/assets/modules/fontawesome/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <link rel="stylesheet" href="<?= STYLEBASE; ?>/dasbor/stisla/css/iziToast.min.css">
   <!-- CSS Libraries -->
   <link rel="stylesheet" href="<?= STYLEBASE; ?>/dasbor/stisla/css/jqvmap.min.css">

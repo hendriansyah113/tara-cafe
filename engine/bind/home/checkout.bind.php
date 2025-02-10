@@ -141,7 +141,10 @@
                                         </div>
                                         <div class="form-group col-sm-6">
                                             <label>No Hp</label>
-                                            <input type="text" class="form-control" id='txtHpPd'>
+                                            <input type="text" class="form-control" id='txtHpPd'
+                                                placeholder="Masukkan nomor tanpa +, contoh: 6281234567890">
+                                            <small class="text-muted">Nomor harus diawali dengan 62 tanpa tanda "+"
+                                                (contoh: 6281234567890)</small>
                                         </div>
                                         <div class="form-group col-sm-6">
                                             <label>Alamat</label>

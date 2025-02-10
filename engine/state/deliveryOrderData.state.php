@@ -46,7 +46,7 @@ class deliveryOrderData
                   FROM tbl_delivery_order 
                   JOIN tbl_pelanggan ON tbl_delivery_order.pelanggan = tbl_pelanggan.id_pelanggan 
                   WHERE 1=1 $searchQuery 
-                  ORDER BY $orderColumn $orderDir 
+                  ORDER BY tbl_delivery_order.id DESC
                   LIMIT " . $requestData['start'] . ", " . $requestData['length'];
 
         $this->st->query($query);

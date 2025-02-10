@@ -63,8 +63,8 @@ var divFormTambahPelanggan = new Vue({
     data : {
         bantuan : [
             {teks : 'Data pelanggan yang lengkap akan meningkatkan akurasi statistik data restoran'},
-            {teks : 'Nomor hp pelanggan disarankan juga nomor whatsapp yang bersangkutan'},
-            {teks : 'Nomor hp, email disarankan valid agar dapat digunakan untuk mengirimkan promosi, pengumuman, dll'},
+            {teks : 'Nomor HP pelanggan disarankan juga nomor WhatsApp yang bersangkutan dan harus diawali dengan 62'},
+            {teks : 'Nomor HP disarankan valid agar dapat digunakan untuk mengirimkan pemberitahuan'},
             {teks : 'Nama & nomor hp akan menjadi id pelanggan, maka dari itu tidak boleh ada nama & nomor handphone yg sama antar pelanggan'},
         ],
         nama : '',

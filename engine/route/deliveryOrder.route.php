@@ -71,7 +71,7 @@ class deliveryOrder extends Route
                 $nestedData[] = 'Tidak ada bukti';
             }
             $nestedData[] = "<a href='#!' class='btn btn-primary btn-sm btn-icon icon-left btnDetail' data-id='" . $kdPesanan . "'><i class='fas fa-info-circle'></i> Detail</a>";
-            $nestedData[] = "<a href='https://wa.me/62" . $hp . "?text=" . $waMessage . "' class='btn btn-success btn-sm btn-icon icon-left' target='_blank'><i class='fab fa-whatsapp'></i> WhatsApp</a>";
+            $nestedData[] = "<a href='https://wa.me/" . $hp . "?text=" . $waMessage . "' class='btn btn-success btn-sm btn-icon icon-left' target='_blank'><i class='fab fa-whatsapp'></i> WhatsApp</a>";
             $data[] = $nestedData;
         }
 

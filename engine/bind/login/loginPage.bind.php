@@ -17,8 +17,9 @@
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://demo.getstisla.com/assets/modules/izitoast/css/iziToast.min.css">
-    <script src="https://demo.getstisla.com/assets/modules/izitoast/js/iziToast.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/izitoast/dist/css/iziToast.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/izitoast/dist/js/iziToast.min.js"></script>
+
 </head>
 <!-- Body  -->
 
@@ -32,7 +33,7 @@
                             <div class="auth-form-light text-left py-5 px-4 px-sm-5" id='login-app'>
                                 <div class="brand-logo" style='text-align:center;'>
                                     <img src="<?= STYLEBASE; ?>/<?= $data['pic']; ?>" alt="logo" style='width:200px; '>
-                                    <h4 style="font-weight:bold;">Aplikasi Manajemen Restoran</h4>
+                                    <h4 style="font-weight:bold;">Aplikasi Manajemen Cafe</h4>
                                 </div>
                                 <div style='text-align:center;'>
                                     <h6 class="font-weight-light">Harap masuk untuk melanjutkan.</h6>
@@ -57,7 +58,7 @@
                                             </div>
                                             <div class="mt-2">
                                                 <div style='padding-top:12px;'>
-                                                    <h5 class="font-weight-light">2020 &copy; <a href='#'
+                                                    <h5 class="font-weight-light">2025 &copy; <a href='#'
                                                             target='new'>Safina Nurhidayanti</a>
                                                     </h5>
                                                 </div>
